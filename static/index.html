@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mapa da Comida</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+.chart {
+  width: 100%; 
+  min-height: 450px;
+}
+
+.row {
+  margin:0 !important;
+}
+
+</style>
+</head>
+<body>
+            <div class="col-md-4 col-md-offset-4">
+                <hr />
+              </div>
+              <div class="clearfix"></div>
+              <div class="col-md-6">
+                <div id="player" class="chart"></div>
+              </div>
+              <div class="col-md-6">
+                <div id="regions_div" class="chart"></div>
+              </div>
+            <div class="flex-container">
+           
+        
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   
+<!-- Sidebar -->
+</head>
+
+
+<!-- !PAGE CONTENT! -->
+      </body>
+
+
+<!-- Photo Grid -->
+
+
+<!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+ 
+<script>
+// Toggle grid padding
+function myFunction() {
+  var x = document.getElementById("myGrid");
+  if (x.className === "w3-row") {
+    x.className = "w3-row-padding";
+  } else { 
+    x.className = x.className.replace("w3-row-padding", "w3-row");
+  }
+}
+
+// Open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.width = "100%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+$(window).resize(function(){
+  drawChart1();
+  drawChart2();
+});
+</script>
+<script src="videoguesser.js"></script>
+</body>
+</html>

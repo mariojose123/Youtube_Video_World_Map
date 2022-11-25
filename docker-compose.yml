@@ -1,0 +1,47 @@
+version : "3"
+services:
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_DB=dbname
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=123
+    ports:
+    - "5432:5432"
+    volumes:
+      - ./postgresdata:/data
+    networks:
+      - default
+  web:
+    build: .
+    container_name: "GOLANG_WEB_SERVER"
+    environment:
+      - DB_HOST=database
+      - DB_USERNAME=user
+      - DB_PASSWORD=123
+      - DB_SCHEME=postgres
+      - DB_PORT=5432
+      - DB_NAME=dbname
+      - SLL_ENABLED=0
+      - CREATE_TABLES=1
+      - DB_CITYNAME=CITIES
+      - DB_CHANNELNAME=CHANNELS
+      - DB_VIDEONAME=VIDEOS
+      - SEARCH_VID_RADIUSUNIT=km
+      - SEARCH_VID_RADIUS=100
+      - SEARCH_VID_SAFESEARCH=moderate
+      - SEARCH_VID_ORDER=relevance
+      - SEARCH_VID_ISSYNDICATED=true
+      - SEARCH_VID_TOPICID=/m/05rwpb
+      - SEARCH_VID_PUBLISHEDBEFORE=2021-01-01T00:00:00Z
+      - YOUTUBE_API_KEY=YOUR_YOUTUBE_API_KEY
+      - SEARCH_VID_DAYS=3
+      - SEARCH_VID_PERDAY=0
+      - SEARCH_VID_MAXRESULTS=100
+
+    ports:
+      - "8080:8080"
+    depends_on: 
+      - database
+    networks:
+      - default
